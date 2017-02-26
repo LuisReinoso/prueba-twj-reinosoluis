@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-sm-5">
+    <h2>Editar Item</h2>
+    <form action="/Item/editarItemForm" method="post" class="form-horizontal ">
+      <div class="form-group">
+        <label class="control-label col-sm-3">Nombre</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder="Ingrese nombre" name="nombre" value="<%= itemAEditar.nombre %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3">Cantidad</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" placeholder="Ingrese cantidad" name="cantidad" value="<%= itemAEditar.cantidad %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3">Peso</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" placeholder="Ingrese peso" name="peso" value="<%= itemAEditar.peso %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3">Bodega</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder="Ingrese nombre bodega" name="bodega" value="<%= itemAEditar.idBodega.nombre %>">
+        </div>
+      </div>
+
+      <input type="hidden" name="idItem" value="<%= itemAEditar.id %>">
+      <button type="submit" class="btn btn-success btn-block">Editar Item</button>
+    </form>
+
+  </div>
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-5 form-horizontal">
+    <h2>Datos Item</h2>
+
+    <div class="col-sm-5 control-label">
+      <strong>Nombre</strong>
+    </div>
+    <div class="col-sm-7">
+      <p class="form-control-static">
+        <%= itemAEditar.nombre%>
+      </p>
+    </div>
+
+    <div class="col-sm-5 control-label">
+      <strong>Cantidad</strong>
+    </div>
+    <div class="col-sm-7">
+      <p class="form-control-static">
+        <%= itemAEditar.cantidad%>
+      </p>
+    </div>
+
+    <div class="col-sm-5 control-label">
+      <strong>Peso</strong>
+    </div>
+    <div class="col-sm-7">
+      <p class="form-control-static">
+        <%= itemAEditar.peso%>
+      </p>
+    </div>
+
+    <div class="col-sm-5 control-label">
+      <strong>Bodega</strong>
+    </div>
+    <div class="col-sm-7">
+      <p class="form-control-static">
+        <%= itemAEditar.idBodega.nombre %>
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</div>

@@ -40,6 +40,7 @@ module.exports.routes = {
 
   'GET /crearitem': 'RutasController.crearItem',
   'GET /listaritems': 'RutasController.listarItems',
+  'GET /editarItem': 'RutasController.editarItem',
 
   /***************************************************************************
   *                                                                          *

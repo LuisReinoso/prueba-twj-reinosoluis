@@ -105,4 +105,53 @@ module.exports = {
         }
       });
   },
+
+  editarItem: function(req, res) {
+
+    parametros = req.allParams();
+
+    if (parametros.id) {
+      Item.findOne({
+          id: parametros.id
+        })
+        .populate('idBodega')
+        .exec(function(error, itemEncontrado) {
+          if (error) {
+            return res.view('vistas/error', {
+              title: 'Error',
+              error: {
+                descripcion: 'Falla encontrar Item',
+                url: '/',
+                rawError: error
+              }
+            });
+          }
+
+          if (itemEncontrado) {
+            return res.view('vistas/Item/editarItem', {
+              title: "Listar Items",
+              itemAEditar: itemEncontrado
+            });
+          } else {
+            return res.view('vistas/error', {
+              title: 'Error',
+              error: {
+                descripcion: 'Item no encontrado',
+                url: '/',
+                rawError: error
+              }
+            });
+          }
+        })
+    } else {
+      return res.view('vistas/error', {
+        title: 'Error',
+        error: {
+          descripcion: 'Falla id Item',
+          url: '/',
+          rawError: error
+        }
+      });
+    }
+  },
 };
