@@ -32,9 +32,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  'GET /': 'RutasController.home',
+
+  'GET /crearbodega': 'RutasController.crearBodega'
 
   /***************************************************************************
   *                                                                          *
