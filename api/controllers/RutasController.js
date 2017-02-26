@@ -9,7 +9,7 @@ module.exports = {
 
   listarBodegas: function(req, res) {
 
-    // Obtener usuarios
+    // Obtener bodegas
     Bodega.find().exec(function(error, listaBodegas) {
 
       if (error) {
@@ -28,6 +28,53 @@ module.exports = {
         });
       }
     });
+  },
+
+  editarBodega: function(req, res) {
+
+    parametros = req.allParams();
+
+    if (parametros.id) {
+      Bodega.findOne({
+        id: parametros.id
+      }).exec(function(error, bodegaEncontrado) {
+        if (error) {
+          return res.view('vistas/error', {
+            title: 'Error',
+            error: {
+              descripcion: 'Falla encontrar Bodega',
+              url: '/',
+              rawError: error
+            }
+          });
+        }
+
+        if (bodegaEncontrado) {
+          return res.view('vistas/Bodega/editarBodega', {
+            title: "Listar Bodegas",
+            bodegaAEditar: bodegaEncontrado
+          });
+        } else {
+          return res.view('vistas/error', {
+            title: 'Error',
+            error: {
+              descripcion: 'Bodega no encontrado',
+              url: '/',
+              rawError: error
+            }
+          });
+        }
+      })
+    } else {
+      return res.view('vistas/error', {
+        title: 'Error',
+        error: {
+          descripcion: 'Falla id Bodega',
+          url: '/',
+          rawError: error
+        }
+      });
+    }
   },
 
 };

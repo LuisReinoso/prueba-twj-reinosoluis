@@ -36,6 +36,7 @@ module.exports.routes = {
 
   'GET /crearbodega': 'RutasController.crearBodega',
   'GET /listarbodegas': 'RutasController.listarBodegas',
+  'GET /editarBodega': 'RutasController.editarBodega',
 
   /***************************************************************************
   *                                                                          *

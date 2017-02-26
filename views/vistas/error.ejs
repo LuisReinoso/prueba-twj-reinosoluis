@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1>¡Error!</h1>
+  <p>
+    <%=typeof error.descripcion == 'undefined' ? 'Error desconocido' : error.descripcion%>
+  </p>
+  <h3>Detalle</h3>
+  <pre>
+     <%= error.rawError %>
+  </pre>
+  <p>
+    <a class="btn btn-danger btn-lg"
+      href="<%=typeof error.url == 'undefined' ? '/' : error.url%>"
+      role="button">Regresar</a>
+  </p>
+</div>

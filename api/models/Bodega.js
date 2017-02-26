@@ -17,7 +17,7 @@ module.exports = {
       minLength: 5
     },
     capacidad: {
-      type: 'number'
+      type: 'integer'
     },
   }
 };
