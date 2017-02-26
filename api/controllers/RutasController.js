@@ -77,4 +77,8 @@ module.exports = {
     }
   },
 
+  crearItem: function(req, res) {
+    return res.view('vistas/Item/crearItem')
+  },
+
 };

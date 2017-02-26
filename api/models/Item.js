@@ -12,7 +12,7 @@ module.exports = {
       type: 'string',
       minLength: 5
     },
-    capacidad: {
+    cantidad: {
       type: 'integer'
     },
     peso: {
