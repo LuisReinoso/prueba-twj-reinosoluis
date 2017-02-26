@@ -1,2 +1,3 @@
-# prueba-twj-reinosoluis
-Aplicacion bodega simple
+# bodega
+
+a [Sails](http://sailsjs.org) application
