@@ -8,7 +8,16 @@
 module.exports = {
 
   attributes: {
-
+    nombre: {
+      type: 'string',
+      minLength: 5
+    },
+    direccion: {
+      type: 'string',
+      minLength: 5
+    },
+    capacidad: {
+      type: 'number'
+    },
   }
 };
-
