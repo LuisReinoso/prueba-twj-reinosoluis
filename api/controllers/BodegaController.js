@@ -47,4 +47,55 @@ module.exports = {
       }
     }
   },
+
+	eliminiarBodega: function(req, res) {
+
+    parametros = req.allParams();
+
+    if (parametros.id) {
+
+      Bodega.destroy({
+        id: parametros.id
+      }).exec(function(error) {
+        if (error) {
+          return res.view('vistas/error', {
+            title: 'Error',
+            error: {
+              descripcion: 'Falla en eliminar bodega',
+              url: '/',
+              rawError: error
+            }
+          });
+        }
+      });
+
+      Bodega.find().exec(function(error, listaBodegas) {
+        if (error) {
+          return res.view('vistas/error', {
+            title: 'Error',
+            error: {
+              descripcion: 'Falla en busqueda bodega',
+              url: '/',
+              rawError: error
+            }
+          });
+        }
+
+        return res.view('vistas/Bodega/listarBodegas', {
+          title: "Listar Bodegas",
+          bodegas: listaBodegas
+        });
+      });
+
+    } else {
+      return res.view('vistas/error', {
+        title: 'Error',
+        error: {
+          descripcion: 'Falla en busqueda bodega',
+          url: '/',
+          rawError: ""
+        }
+      });
+    }
+  },
 };
