@@ -18,9 +18,9 @@ module.exports = {
     peso: {
       type: 'integer'
     },
-    bodegas: {
-      collection: 'Bodega',
-      via: 'idItem'
+    idBodega: {
+      model: 'Bodega',
+      required: true
     }
   }
 };

@@ -81,4 +81,28 @@ module.exports = {
     return res.view('vistas/Item/crearItem')
   },
 
+  listarItems: function(req, res) {
+
+    // Obtener items
+    Item.find()
+      .populate('idBodega')
+      .exec(function(error, listaItems) {
+
+        if (error) {
+          return res.view('vistas/error', {
+            title: 'Error',
+            error: {
+              descripcion: 'Falla en listar Items',
+              url: '/',
+              rawError: error
+            }
+          });
+        } else {
+          return res.view('vistas/Item/listarItems', {
+            title: "Listar Items",
+            items: listaItems
+          });
+        }
+      });
+  },
 };

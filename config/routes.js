@@ -39,6 +39,8 @@ module.exports.routes = {
   'GET /editarBodega': 'RutasController.editarBodega',
 
   'GET /crearitem': 'RutasController.crearItem',
+  'GET /listaritems': 'RutasController.listarItems',
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

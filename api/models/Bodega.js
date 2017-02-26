@@ -19,9 +19,9 @@ module.exports = {
     capacidad: {
       type: 'integer'
     },
-    idItem: {
-      model: 'Item',
-      required: true
+    bodegas: {
+      collection: 'Item',
+      via: 'idBodega'
     }
   }
 };
