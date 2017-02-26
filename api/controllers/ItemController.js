@@ -78,4 +78,57 @@ module.exports = {
       }
     }
   },
+
+	eliminiarItem: function(req, res) {
+
+		parametros = req.allParams();
+
+		if (parametros.id) {
+
+			Item.destroy({
+				id: parametros.id
+			}).exec(function(error) {
+				if (error) {
+					return res.view('vistas/error', {
+						title: 'Error',
+						error: {
+							descripcion: 'Falla en eliminar item',
+							url: '/',
+							rawError: error
+						}
+					});
+				}
+			});
+
+			Item.find()
+				.populate('idBodega')
+				.exec(function(error, listaItems) {
+					if (error) {
+						return res.view('vistas/error', {
+							title: 'Error',
+							error: {
+								descripcion: 'Falla en busqueda item',
+								url: '/',
+								rawError: error
+							}
+						});
+					}
+
+					return res.view('vistas/Item/listarItems', {
+						title: "Listar Items",
+						items: listaItems
+					});
+				});
+
+		} else {
+			return res.view('vistas/error', {
+				title: 'Error',
+				error: {
+					descripcion: 'Falla en busqueda item',
+					url: '/',
+					rawError: ""
+				}
+			});
+		}
+	},
 };
